@@ -18,7 +18,7 @@ interface LoginResponse {
 export class AuthService {
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
   isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
-  private apiUrl = 'http://localhost:3000/api'; // Remplacez par votre URL d'API
+  /*private apiUrl = 'http://localhost:3000/api'; // Remplacez par votre URL d'API
 
   constructor(private http: HttpClient) {
     // Vérifier si l'utilisateur est déjà connecté au chargement
@@ -27,7 +27,7 @@ export class AuthService {
     if (token) {
       this.isAuthenticatedSubject.next(true);
     }
-  }
+  }*/
 
   login(email: string, password: string): Observable<LoginResponse> {
     // Pour le développement, on accepte n'importe quel email/mot de passe
