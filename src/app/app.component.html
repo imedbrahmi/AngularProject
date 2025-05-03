@@ -1,0 +1,43 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">CV Builder</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Accueil</a>
+        </li>
+        @if (authService.isAuthenticated()) {
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">Tableau de bord</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/choose-template" routerLinkActive="active">Créer un CV</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/editor-portfolio" routerLinkActive="active">Créer un Portfolio</a>
+          </li>
+        }
+      </ul>
+      <ul class="navbar-nav">
+        @if (!authService.isAuthenticated()) {
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login" routerLinkActive="active">Se connecter</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/register" routerLinkActive="active">S'inscrire</a>
+          </li>
+        } @else {
+          <li class="nav-item">
+            <a class="nav-link" (click)="logout()" style="cursor: pointer;">Déconnecter</a>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

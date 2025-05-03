@@ -1,0 +1,31 @@
+<div #templateRef class="cv-template-template3">
+    <div class="banner">
+      <h1>{{ formData.name }}</h1>
+      <img [src]="profileImageUrl" class="avatar" alt="Profile Image" />
+
+      <p>{{ formData.email }} | {{ formData.phone }}</p>
+      <p>{{ formData.address }} | Birthday: {{ formData.birthday }}</p>
+    </div>
+  
+    <div class="main-content">
+      <section>
+        <h2>Education</h2>
+        <p>{{ formData.education }}</p>
+      </section>
+  
+      <section>
+        <h2>Languages</h2>
+        <p>{{ formData.languages }}</p>
+      </section>
+  
+      <section>
+        <h2>Experience</h2>
+        <p>{{ formData.experience }}</p>
+      </section>
+  
+      <section>
+        <h2>Skills</h2>
+        <p>{{ formData.skills }}</p>
+      </section>
+    </div>
+  </div>

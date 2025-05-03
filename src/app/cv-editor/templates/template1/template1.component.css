@@ -1,0 +1,57 @@
+.cv-template-template1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #212529;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    min-height: 1800px;
+
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #dee2e6;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+  
+  .info h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 600;
+    color: #007bff;
+  }
+  
+  .info .title {
+    font-size: 18px;
+    color: #6c757d;
+    margin-bottom: 10px;
+  }
+  
+  .section {
+    margin-bottom: 25px;
+  }
+  
+  .section h2 {
+    font-size: 20px;
+    border-bottom: 1px solid #ced4da;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    color: #343a40;
+  }
+  
+  .section p {
+    margin: 0;
+    line-height: 1.5;
+  }

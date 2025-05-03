@@ -1,0 +1,33 @@
+<div class="container min-vh-100 d-flex justify-content-center align-items-center">
+    <div class="col-md-6">
+      <div class="card shadow">
+        <div class="card-body p-4">
+          <h2 class="text-center mb-4">Sign Up</h2>
+  
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label class="form-label">Full Name</label>
+              <input type="text" formControlName="name" class="form-control" placeholder="John Doe">
+
+            </div>
+  
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input type="email" formControlName="email" class="form-control" placeholder="email@example.com">
+            </div>
+  
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <input type="password" formControlName="password" class="form-control" placeholder="••••••••">
+            </div>
+            <div class="text-center mt-3">
+              <button routerLink="/login" class="btn btn-link">Se connecter</button>
+           
+            </div>
+            <button type="submit" class="btn btn-primary w-100" [disabled]="registerForm.invalid">Create Account</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

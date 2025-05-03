@@ -1,0 +1,172 @@
+<!-- Bandeau vert avec titre -->
+<div class="header-green text-center text-white py-5">
+  <h2 class="fw-bold">Tableau de Bord</h2>
+</div>
+
+<div class="container mt-5">
+  <div class="row g-4">
+    <!-- Carte CV -->
+    <div class="col-md-6">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <div class="d-flex align-items-center mb-3">
+            <i class="bi bi-file-earmark-text fs-1 text-primary me-3"></i>
+            <h3 class="card-title mb-0">Mes CVs</h3>
+          </div>
+          <p class="card-text text-muted">Gérez vos CVs professionnels.</p>
+          
+          <!-- Liste des CVs -->
+          <div class="list-group mb-3">
+            @for (cv of cvs; track cv.id) {
+              <div class="list-group-item">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <h6 class="mb-1">{{ cv.title }}</h6>
+                    <small class="text-muted">Mis à jour {{ getTimeAgo(cv.updatedAt) }}</small>
+                  </div>
+                  <div class="btn-group">
+                    <button class="btn btn-sm btn-outline-primary" (click)="editDocument(cv.id, 'cv')">
+                      <i class="bi bi-pencil"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger" (click)="deleteDocument(cv.id, 'cv')">
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            }
+            @if (cvs.length === 0) {
+              <div class="text-center text-muted py-3">
+                Aucun CV créé
+              </div>
+            }
+          </div>
+
+          <div class="d-grid">
+            <button class="btn btn-primary" (click)="createNewCV()">
+              <i class="bi bi-plus-circle me-2"></i>Créer un nouveau CV
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carte Portfolio -->
+    <div class="col-md-6">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <div class="d-flex align-items-center mb-3">
+            <i class="bi bi-briefcase fs-1 text-success me-3"></i>
+            <h3 class="card-title mb-0">Mes Portfolios</h3>
+          </div>
+          <p class="card-text text-muted">Gérez vos portfolios professionnels.</p>
+
+          <!-- Liste des Portfolios -->
+          <div class="list-group mb-3">
+            @for (portfolio of portfolios; track portfolio.id) {
+              <div class="list-group-item">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <h6 class="mb-1">{{ portfolio.title }}</h6>
+                    <small class="text-muted">Mis à jour {{ getTimeAgo(portfolio.updatedAt) }}</small>
+                  </div>
+                  <div class="btn-group">
+                    <button class="btn btn-sm btn-outline-success" (click)="editDocument(portfolio.id, 'portfolio')">
+                      <i class="bi bi-pencil"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger" (click)="deleteDocument(portfolio.id, 'portfolio')">
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            }
+            @if (portfolios.length === 0) {
+              <div class="text-center text-muted py-3">
+                Aucun portfolio créé
+              </div>
+            }
+          </div>
+
+          <div class="d-grid">
+            <button class="btn btn-success" (click)="createNewPortfolio()">
+              <i class="bi bi-plus-circle me-2"></i>Créer un nouveau portfolio
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Statistiques -->
+    <div class="col-12 mt-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title mb-4">Statistiques</h3>
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="d-flex align-items-center">
+                <div class="rounded-circle bg-primary bg-opacity-10 p-3 me-3">
+                  <i class="bi bi-eye fs-4 text-primary"></i>
+                </div>
+                <div>
+                  <h4 class="mb-0">1,234</h4>
+                  <p class="text-muted mb-0">Vues du CV</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="d-flex align-items-center">
+                <div class="rounded-circle bg-success bg-opacity-10 p-3 me-3">
+                  <i class="bi bi-download fs-4 text-success"></i>
+                </div>
+                <div>
+                  <h4 class="mb-0">56</h4>
+                  <p class="text-muted mb-0">Téléchargements</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="d-flex align-items-center">
+                <div class="rounded-circle bg-info bg-opacity-10 p-3 me-3">
+                  <i class="bi bi-star fs-4 text-info"></i>
+                </div>
+                <div>
+                  <h4 class="mb-0">89%</h4>
+                  <p class="text-muted mb-0">Taux de complétion</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activité récente -->
+    <div class="col-12 mt-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title mb-4">Activité récente</h3>
+          <div class="list-group">
+            @for (activity of recentActivity; track activity.date) {
+              <div class="list-group-item d-flex align-items-center">
+                <i class="bi" [ngClass]="{
+                  'bi-file-earmark-text text-primary': activity.type === 'cv',
+                  'bi-briefcase text-success': activity.type === 'portfolio'
+                }"></i>
+                <div class="ms-3">
+                  <h6 class="mb-1">{{ activity.message }}</h6>
+                  <small class="text-muted">{{ getTimeAgo(activity.date) }}</small>
+                </div>
+              </div>
+            }
+            @if (recentActivity.length === 0) {
+              <div class="text-center text-muted py-3">
+                Aucune activité récente
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

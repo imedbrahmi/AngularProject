@@ -1,0 +1,138 @@
+.dashboard-wrapper {
+    background: linear-gradient(to bottom, #28c76f, #f0f8ff);
+    min-height: 100vh;
+    padding: 60px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .dashboard-box {
+    background-color: #ffffff;
+    border-radius: 12px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .dashboard-box h1 {
+    font-weight: 700;
+    color: #2e2e2e;
+  }
+  
+  .dashboard-box p {
+    color: #666;
+    margin-bottom: 30px;
+  }
+  
+  .dashboard-btn {
+    background-color: #28c76f;
+    color: white;
+    font-weight: 600;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 30px;
+    transition: 0.3s;
+    text-align: center;
+  }
+  
+  .dashboard-btn:hover {
+    background-color: #2ca358;
+  }
+  
+  .logout-btn {
+    background-color: #ea5455;
+    color: white;
+    font-weight: 600;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 30px;
+    transition: 0.3s;
+    text-align: center;
+  }
+  
+  .logout-btn:hover {
+    background-color: #cf3c3c;
+  }
+  
+  .dashboard-card {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dashboard-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .dashboard-card p {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .dashboard-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .dashboard-btn-wrapper a {
+    width: 200px;
+  }
+  
+  .dashboard-btn-wrapper .btn {
+    border-radius: 30px;
+    padding: 12px 20px;
+  }
+  
+  .header-green {
+    background-color: #28a745;
+    margin-bottom: 2rem;
+  }
+  
+  .card {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+  
+  .list-group-item {
+    border-left: none;
+    border-right: none;
+    padding: 1rem;
+  }
+  
+  .list-group-item:first-child {
+    border-top: none;
+  }
+  
+  .list-group-item:last-child {
+    border-bottom: none;
+  }
+  
+  .btn {
+    padding: 0.5rem 1.5rem;
+  }
+  
+  .rounded-circle {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  

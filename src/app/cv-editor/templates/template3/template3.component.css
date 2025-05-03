@@ -1,0 +1,45 @@
+.cv-template-template3 {
+    font-family: 'Georgia', serif;
+    background-color: #fdf6e3;
+    color: #333;
+    padding: 30px;
+    border: 1px solid #e0cda9;
+    border-radius: 8px;
+    min-height: 1800px;
+  }
+  :host {
+    display: block;
+    background-color: #fdf6e3;
+    min-height: 100vh;
+    padding: 30px;
+  }
+  .banner {
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 2px solid #d2b48c;
+    margin-bottom: 20px;
+  }
+  
+  .banner h1 {
+    margin: 0;
+    color: #b58900;
+    font-size: 26px;
+  }
+  
+  .main-content section {
+    margin-bottom: 20px;
+  }
+  
+  .main-content h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #6c541e;
+    border-bottom: 1px solid #c0a16b;
+  }
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+  }

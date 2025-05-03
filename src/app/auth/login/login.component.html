@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card mt-5">
+        <div class="card-body">
+          <h2 class="text-center mb-4">Connexion</h2>
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                formControlName="email"
+                [ngClass]="{
+                  'is-invalid': loginForm.get('email')?.invalid && loginForm.get('email')?.touched,
+                  'is-valid': loginForm.get('email')?.valid && loginForm.get('email')?.touched
+                }"
+              />
+              @if (loginForm.get('email')?.errors?.['required'] && loginForm.get('email')?.touched) {
+                <div class="invalid-feedback">Ce champ est obligatoire</div>
+              }
+              @if (loginForm.get('email')?.errors?.['email'] && loginForm.get('email')?.touched) {
+                <div class="invalid-feedback">Format d'email invalide</div>
+              }
+            </div>
+
+            <div class="mb-3">
+              <label for="password" class="form-label">Mot de passe</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                formControlName="password"
+                [ngClass]="{
+                  'is-invalid': loginForm.get('password')?.invalid && loginForm.get('password')?.touched,
+                  'is-valid': loginForm.get('password')?.valid && loginForm.get('password')?.touched
+                }"
+              />
+              @if (loginForm.get('password')?.errors?.['required'] && loginForm.get('password')?.touched) {
+                <div class="invalid-feedback">Ce champ est obligatoire</div>
+              }
+              @if (loginForm.get('password')?.errors?.['minlength'] && loginForm.get('password')?.touched) {
+                <div class="invalid-feedback">Le mot de passe doit contenir au moins 6 caractères</div>
+              }
+            </div>
+
+            @if (errorMessage) {
+              <div class="alert alert-danger">{{ errorMessage }}</div>
+            }
+
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid || isLoading">
+                @if (isLoading) {
+                  <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                }
+                Se connecter
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  

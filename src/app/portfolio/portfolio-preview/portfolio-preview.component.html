@@ -1,0 +1,51 @@
+<div class="header-green text-center text-white py-5">
+    <h2 class="fw-bold">Mon Portfolio</h2>
+  </div>
+<div class="custom-background">
+    <div class="container">
+      <!-- Header -->
+      <header>
+        <p class="lead">Découvrez mes projets récents</p>
+      </header>
+  
+      <!-- Projects Grid -->
+      <div class="row">
+        @for (project of projects; track project.id) {
+          <div class="col-md-6 mb-4">
+            <div class="card h-100 shadow">
+              @if (project.imageUrl) {
+                <img [src]="project.imageUrl" class="card-img-top" [alt]="project.title">
+              }
+              <div class="card-body">
+                <h3 class="card-title">{{ project.title }}</h3>
+                <p class="card-text">{{ project.description }}</p>
+                <p><strong>Technologies :</strong> {{ project.technologies }}</p>
+                <a [href]="project.link" target="_blank" class="btn btn-outline-primary btn-sm">Voir le projet</a>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+  
+      <!-- Section Contact affichée dynamiquement -->
+      @if (contactInfo.name || contactInfo.email || contactInfo.message) {
+        <section class="contact-section mt-5">
+          <h2 class="text-center mb-4">Contact</h2>
+          <div class="card">
+            <div class="card-body">
+              @if (contactInfo.name) {
+                <p><strong>Nom:</strong> {{ contactInfo.name }}</p>
+              }
+              @if (contactInfo.email) {
+                <p><strong>Email:</strong> {{ contactInfo.email }}</p>
+              }
+              @if (contactInfo.message) {
+                <p><strong>Message:</strong> {{ contactInfo.message }}</p>
+              }
+            </div>
+          </div>
+        </section>
+      }
+    </div>
+  </div>
+  

@@ -1,0 +1,176 @@
+<!-- Bandeau vert avec titre -->
+<div class="header-green text-center text-white py-5">
+  <h2 class="fw-bold">Créer mon CV</h2>
+</div>
+
+<div class="container mt-4">
+  <div class="row">
+    <!-- Formulaire -->
+    <div class="col-md-6">
+      <form [formGroup]="cvForm" (ngSubmit)="onSubmit()">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h2 class="card-title mb-4">Informations du CV</h2>
+
+            <!-- Titre du CV -->
+            <div class="mb-3">
+              <label for="title" class="form-label">Titre du CV</label>
+              <input type="text" class="form-control" id="title" formControlName="title"
+                [ngClass]="{'is-invalid': cvForm.get('title')?.invalid && cvForm.get('title')?.touched}">
+              @if (cvForm.get('title')?.invalid && cvForm.get('title')?.touched) {
+                <div class="invalid-feedback">Ce champ est obligatoire</div>
+              }
+            </div>
+
+            <!-- Nom -->
+            <div class="mb-3">
+              <label for="name" class="form-label">Nom complet</label>
+              <input type="text" class="form-control" id="name" formControlName="name"
+                [ngClass]="{'is-invalid': cvForm.get('name')?.invalid && cvForm.get('name')?.touched}">
+              @if (cvForm.get('name')?.invalid && cvForm.get('name')?.touched) {
+                <div class="invalid-feedback">Ce champ est obligatoire</div>
+              }
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" formControlName="email"
+                [ngClass]="{'is-invalid': cvForm.get('email')?.invalid && cvForm.get('email')?.touched}">
+              @if (cvForm.get('email')?.invalid && cvForm.get('email')?.touched) {
+                @if (cvForm.get('email')?.errors?.['required']) {
+                  <div class="invalid-feedback">Ce champ est obligatoire</div>
+                }
+                @if (cvForm.get('email')?.errors?.['email']) {
+                  <div class="invalid-feedback">Format d'email invalide</div>
+                }
+              }
+            </div>
+
+            <!-- Téléphone -->
+            <div class="mb-3">
+              <label for="phone" class="form-label">Téléphone</label>
+              <input type="text" class="form-control" id="phone" formControlName="phone"
+                [ngClass]="{'is-invalid': cvForm.get('phone')?.invalid && cvForm.get('phone')?.touched}">
+              @if (cvForm.get('phone')?.invalid && cvForm.get('phone')?.touched) {
+                @if (cvForm.get('phone')?.errors?.['required']) {
+                  <div class="invalid-feedback">Ce champ est obligatoire</div>
+                }
+                @if (cvForm.get('phone')?.errors?.['pattern']) {
+                  <div class="invalid-feedback">Le numéro doit contenir exactement 8 chiffres</div>
+                }
+                @if (cvForm.get('phone')?.errors?.['onlyNumbers']) {
+                  <div class="invalid-feedback">Seuls les chiffres sont autorisés</div>
+                }
+              }
+            </div>
+
+            <!-- Adresse -->
+            <div class="mb-3">
+              <label for="address" class="form-label">Adresse</label>
+              <input type="text" class="form-control" id="address" formControlName="address"
+                [ngClass]="{'is-invalid': cvForm.get('address')?.invalid && cvForm.get('address')?.touched}">
+              @if (cvForm.get('address')?.invalid && cvForm.get('address')?.touched) {
+                <div class="invalid-feedback">Ce champ est obligatoire</div>
+              }
+            </div>
+
+            <!-- Date de naissance -->
+            <div class="mb-3">
+              <label for="birthday" class="form-label">Date de naissance</label>
+              <input type="date" class="form-control" id="birthday" formControlName="birthday"
+                [ngClass]="{'is-invalid': cvForm.get('birthday')?.invalid && cvForm.get('birthday')?.touched}">
+              @if (cvForm.get('birthday')?.invalid && cvForm.get('birthday')?.touched) {
+                <div class="invalid-feedback">Ce champ est obligatoire</div>
+              }
+            </div>
+
+            <!-- Éducation -->
+            <div class="mb-3">
+              <label for="education" class="form-label">Éducation</label>
+              <textarea class="form-control" id="education" rows="3" formControlName="education"
+                [ngClass]="{'is-invalid': cvForm.get('education')?.invalid && cvForm.get('education')?.touched}"></textarea>
+              @if (cvForm.get('education')?.invalid && cvForm.get('education')?.touched) {
+                <div class="invalid-feedback">Ce champ est obligatoire</div>
+              }
+            </div>
+
+            <!-- Langues -->
+            <div class="mb-3">
+              <label for="languages" class="form-label">Langues</label>
+              <textarea class="form-control" id="languages" rows="2" formControlName="languages"
+                [ngClass]="{'is-invalid': cvForm.get('languages')?.invalid && cvForm.get('languages')?.touched}"></textarea>
+              @if (cvForm.get('languages')?.invalid && cvForm.get('languages')?.touched) {
+                <div class="invalid-feedback">Ce champ est obligatoire</div>
+              }
+            </div>
+
+            <!-- Expérience -->
+            <div class="mb-3">
+              <label for="experience" class="form-label">Expérience</label>
+              <textarea class="form-control" id="experience" rows="4" formControlName="experience"
+                [ngClass]="{'is-invalid': cvForm.get('experience')?.invalid && cvForm.get('experience')?.touched}"></textarea>
+              @if (cvForm.get('experience')?.invalid && cvForm.get('experience')?.touched) {
+                <div class="invalid-feedback">Ce champ est obligatoire</div>
+              }
+            </div>
+
+            <!-- Compétences -->
+            <div class="mb-3">
+              <label for="skills" class="form-label">Compétences</label>
+              <textarea class="form-control" id="skills" rows="3" formControlName="skills"
+                [ngClass]="{'is-invalid': cvForm.get('skills')?.invalid && cvForm.get('skills')?.touched}"></textarea>
+              @if (cvForm.get('skills')?.invalid && cvForm.get('skills')?.touched) {
+                <div class="invalid-feedback">Ce champ est obligatoire</div>
+              }
+            </div>
+
+            <!-- Résumé -->
+            <div class="mb-3">
+              <label for="summary" class="form-label">Résumé</label>
+              <textarea class="form-control" id="summary" rows="3" formControlName="summary"
+                [ngClass]="{'is-invalid': cvForm.get('summary')?.invalid && cvForm.get('summary')?.touched}"></textarea>
+              @if (cvForm.get('summary')?.invalid && cvForm.get('summary')?.touched) {
+                <div class="invalid-feedback">Ce champ est obligatoire</div>
+              }
+            </div>
+
+            <!-- Photo de profil -->
+            <div class="mb-3">
+              <label for="profileImage" class="form-label">Photo de profil</label>
+              <input type="file" class="form-control" id="profileImage" accept="image/*" (change)="onFileSelected($event)">
+            </div>
+
+            <!-- Boutons -->
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary">
+                {{ isEditing ? 'Mettre à jour' : 'Enregistrer' }}
+              </button>
+              <button type="button" class="btn btn-success" (click)="generatePDF()">
+                Générer PDF
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Aperçu -->
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h2 class="card-title mb-4">Aperçu</h2>
+          <div #templateComponent>
+            @if (selectedTemplate === 'template1') {
+              <app-template1 [formData]="cvForm.value" [profileImageUrl]="profileImageUrl"></app-template1>
+            } @else if (selectedTemplate === 'template2') {
+              <app-template2 [formData]="cvForm.value" [profileImageUrl]="profileImageUrl"></app-template2>
+            } @else if (selectedTemplate === 'template3') {
+              <app-template3 [formData]="cvForm.value" [profileImageUrl]="profileImageUrl"></app-template3>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

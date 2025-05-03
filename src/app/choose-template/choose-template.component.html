@@ -1,0 +1,21 @@
+<div class="header-green text-center text-white py-5">
+  <h2 class="fw-bold">Choisissez un modèle de CV</h2>
+</div>
+
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Choisissez votre modèle de CV</h2>
+  <div class="row">
+    @for (template of templates; track template.value) {
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img [src]="template.img" class="card-img-top" [alt]="template.name">
+          <div class="card-body">
+            <h5 class="card-title">{{ template.name }}</h5>
+            <button class="btn btn-primary" (click)="onSelectTemplate(template)">Utiliser ce modèle</button>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
+
