@@ -23,6 +23,7 @@ export class AuthService {
   constructor(private http: HttpClient) {
     // Vérifier si l'utilisateur est déjà connecté au chargement
     const token = localStorage.getItem('token');
+    console.log(token)
     if (token) {
       this.isAuthenticatedSubject.next(true);
     }
